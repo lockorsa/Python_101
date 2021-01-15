@@ -1,0 +1,5 @@
+Petrov 45000
+Ivanov 30000
+Sidorov 19000
+Lee 10000
+Lastname 0
