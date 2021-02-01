@@ -12,3 +12,31 @@
 складываем с первым элементом первой строки второй матрицы и т.д."""
 
 
+class Matrix:
+
+    def __init__(self, data):
+        self.data = data
+
+    def __str__(self):
+        return '\n'.join([' '.join(map(str, item)) for item in self.data]) + '\n'
+
+    def __add__(self, other):
+        if len(self.data) == len(other.data):
+            return Matrix([*map(lambda first, second: [*map(sum, zip(first, second))], self.data, other.data)])
+        else:
+            return 'Сложение невозможно'
+
+
+if __name__ == '__main__':
+
+    a = Matrix([[1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9, 4, 6, 3]])
+
+    b = Matrix([[5, 7, 2, 9],
+                [8, 7, 6, 5],
+                [4, 3, 2, 1]])
+
+    print(a)
+    print(b)
+    print(a + b)
