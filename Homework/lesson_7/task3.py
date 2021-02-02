@@ -37,7 +37,10 @@ class Cell:
         return Cell(self.value + other.value)
 
     def __sub__(self, other):
-        return Cell(self.value - other.value) if self.value > other.value else 'Вычитание невозможно'
+        if self.value > other.value:
+            return Cell(self.value - other.value)
+        else:
+            raise ValueError('Вычитание невозможно')
 
     def __mul__(self, other):
         return Cell(self.value * other.value)
@@ -68,4 +71,3 @@ if __name__ == '__main__':
     print(biggest_cell_on_da_block - unit)
     print(biggest_cell_on_da_block.make_order(20))
     print(another_cell.make_order(11))
-
